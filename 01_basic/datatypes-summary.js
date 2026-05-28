@@ -36,3 +36,30 @@ let myobj = {
 console.log(typeof scoreValue);
 console.log(typeof myfunction);
 
+//+++++++++++++++++++++++++++++++++++++++
+// memory.....
+// Stack(Primitive), Heap (Non-Primitive)
+
+let myYouTubename = "anuraggurjaroffical"
+
+let anothername = myYouTubename
+anothername = "gurjaranu"
+
+console.log(myYouTubename)
+console.log(anothername) // stack proovide not acutal object,only copy 
+
+let userOne = {
+    email: "gurjaranurag67@gmail.com",
+    contact: 8824112516,
+
+}
+let userTwo = userOne
+
+userTwo.email = "demo@gmail.com"
+userTwo.contact = 9660384823
+
+console.log(userOne.email)
+
+console.log(userOne.contact) // in the heap memory provide refernce object ,change in original value 
+
+ 
