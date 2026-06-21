@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <title>BMI Calculator</title>
+  </head>
+  
+  <body>
+   
+<!-- Nav bar ko right-top corner me align kiya aur button add kiya -->
+<nav style="position: absolute; top: 20px; right: 20px; display: flex; align-items: center; gap: 15px;">
+<a href="/" aria-current="page" style="position: fixed; top: 20px; left: 20px; color: inherit; text-decoration: none; font-weight: bold; font-size: 1.1rem; z-index: 9999;">Home</a>
+  <!-- <a target="_blank" href="https://youtube.com" style="color: inherit; text-decoration: none;">Youtube channel</a> -->
+  
+  <!-- Theme button jo default me Moon (🌙) dikhayega -->
+  <button id="theme-toggle" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 5px; margin: 0; width: auto; height: auto;">🌙</button>
+
+
+    </nav>
+    <!-- Main Centered Box Format -->
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <form onsubmit="event.preventDefault();">
+        <p>
+          <label>Height in CM: </label>
+          <input type="text" id="height" placeholder="E.g., 170" />
+        </p>
+        <p>
+          <label>Weight in KG: </label>
+          <input type="text" id="weight" placeholder="E.g., 65" />
+        </p>
+        <button id="calculate-btn">Calculate</button>
+        
+        <!-- Live Response Section -->
+        <div id="results"></div>
+        
+        <!-- Weight Guide Table Divider -->
+        <div id="weight-guide">
+          <h3>BMI Weight Guide</h3>
+          <p>Under Weight = Less than 18.6</p>
+          <p>Normal Range = 18.6 and 24.9</p>
+          <p>Overweight = Greater than 24.9</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="bmi.js"></script>
+  </body>
+</html>

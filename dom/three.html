@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Or Code</title>
+</head>
+<body style="background-color: blue;">
+    <ul class ="language">
+        <li>javascript</li>
+    </ul>
+    
+</body>
+<script>
+    function addLanguage(langName)
+    {
+        const li = document.createElement('li');
+        li.innerHTML= `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("TypeofScript")
+
+// better approx...
+
+function addLanguage(langName){
+    const li = document.createElement('li');
+    li.textContent = langName;
+    document.querySelector('.language') .appendChild(li)
+
+}
+ addLanguage("golang")
+
+// Edit doc....
+
+const secondLang = document.querySelector("li:nth-child(2)")
+    //secondLang.innerHTML ="Mojo" // not good approx 
+
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    //remove...'
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+    
+
+</script>
+</html>
