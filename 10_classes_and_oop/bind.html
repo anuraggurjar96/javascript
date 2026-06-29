@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+
+    <script>
+        class React {
+            constructor() {
+                this.library = "React"
+                this.server = "https://localhost:300"
+
+                // SHORT NOTE: .bind(this) lagana zaroori hai. 
+                // Agar nahi lagayenge to handleClick ke andar 'this' button element ko point karne lagega, aur 'this.server' undefined aayega.
+            
+                document.querySelector('button')
+                        .addEventListener('click', this.handleClick.bind(this))
+            }
+
+            handleClick() {
+                console.log("button clicked");
+                console.log(this.server); // Output: https://localhost:300
+            }
+        } 
+
+        // SHORT NOTE: Class ko active karne ke liye object banana compulsory hai!
+        const app = new React(); 
+    </script>
+</body>
+</html>
+
+// *********Notes.........
+/*
+Asli Kaam: Ye kisi bhi function ke andar ke this keyword ko permanently ek jagah lock (bind) kar deta hai.
+Kyun Zaroori Hai?:
+ Jab koi function kisi event (jaise button click) ya callback me jata hai, to vo apna asli this kho deta hai.
+ .bind() use khoone nahi deta.
+ Unique Feature: Ye function ko turant execute nahi karta (jaise call ya apply karte hain), balki baad me chalne ke liye ek naya altered function return karta hai.*/
