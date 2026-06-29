@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexical Scope & Closure Notes</title>
+</head>
+<body>
+
+    <h1>JavaScript Scope & Closure Concepts</h1>
+    <p>Check the browser console (F12 -> Console) to see the outputs and errors.</p>
+
+    <!-- ========================================================
+         PART 1: LEXICAL SCOPE & SCOPE CHAIN
+         ======================================================== -->
+    <script>
+        console.log("--- PART 1: Lexical Scope ---");
+
+        function outer() {
+            let name = "Anurag";
+
+            function inner() {
+                let secret = "my123";
+                console.log("Inner:", name); // ✅ Output: "Anurag" (Child can access Parent's variable)
+            }
+
+            function innerTwo() {
+                console.log("InnerTwo:", name); // ✅ Output: "Anurag"
+
+                // ❌ ERROR LINE (Commented to prevent code crash):
+                // console.log(secret); 
+                // Kyunki 'secret' inner() ke andar ka local variable hai. 
+                // Ek sibling dusre sibling ka data access nahi kar sakta.
+                console.log("InnerTwo: Cannot access 'secret' from inner() sibling.");
+            }
+
+            inner();
+            innerTwo();
+        }
+
+        outer();
+
+        // ❌ ERROR LINE (Commented to prevent code crash):
+        // console.log("Outer", name); 
+        // Kyunki global scope se aap function ke andar ka variable access nahi kar sakte.
+        console.log("Global Space: Cannot access 'name' variable directly from outer().");
+    </script>
+
+
+    <!-- ========================================================
+         PART 2: CLOSURE (FUNCTION RETURN EFFECT)
+         ======================================================== -->
+    <script>
+        console.log("\n--- PART 2: Closure Magic ---");
+
+        function makeFunc() {
+            let name = "Anurag Gurjar";
+
+            function display() {
+                console.log("Closure Output:", name); // ✅ Lexical scope provides access to 'name'
+            }
+
+            return display; // 👈 display function ko variables ki potli ke saath bahar bhej diya
+        }
+
+        // 1. makeFunc chala aur usne display function return karke apna kaam khatam kar diya.
+        // 2. Is line ke baad makeFunc memory se free (destroy) ho gaya.
+        let myFunc = makeFunc(); 
+
+        // 3. Ab hum bahar se inner function ko call kar rahe hain.
+        // 4. Closure ki wajah se isne "Anurag Gurjar" ko yaad rakha hai!
+        myFunc(); 
+    </script>
+
+</body>
+</html>
+ 
