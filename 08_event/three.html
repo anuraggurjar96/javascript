@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai or Code </title>
+</head>
+<body>
+    <h1>Chai Or Code</h1>
+     <button id ="start" style = "background-color: green; border-radius : 8px"; > Start </button>
+
+    <button id ="stop" style = "background-color: blue; border-radius : 8px"; > Stop </button>
+    <script>
+       const sayDate = function(str){
+        console.log(str,Date.now());
+       }
+let intervalId;
+         document.querySelector('#start').addEventListener('click',function()
+    {
+          if (!intervalId)
+          {
+            intervalId = setInterval(sayDate,1000,"Anurag")
+        
+          }
+    })
+       document.querySelector('#stop').addEventListener('click',function()
+    {
+       
+         clearInterval(intervalId);
+         intervalId = null;
+    })
+       
+        
+    </script>
+</body>
+</html>
